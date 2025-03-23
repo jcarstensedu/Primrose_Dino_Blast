@@ -169,7 +169,7 @@ function initializeStartScreen() {
     startScreen.style.textAlign = "center";
     startScreen.style.zIndex = "1000";
 
-    startScreen.innerHTML = `<p>Hold on to your butts! Primrose is overrun by Velociraptors<br><span style="font-size: 20px; color:green;">Use A, W, S, D to move and the Mouse to Shoot.</span></p>`;
+    startScreen.innerHTML = `<p>Hold on to your butts! Primrose is overrun by Velociraptors<br><span style="font-size: 20px; color:green;">Use W,A,S,D to move and the Mouse to Aim & Shoot.</span></p>`;
 
 
     // Create Start Button
