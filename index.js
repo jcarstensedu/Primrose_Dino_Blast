@@ -9,6 +9,8 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const bgMusic = document.getElementById("bgMusic");
 
+
+
 // Play music when the user interacts
 document.addEventListener("click", () => {
     bgMusic.play();
@@ -20,7 +22,7 @@ function stopMusic() {
     bgMusic.currentTime = 1;
 }
 
-canvas.width = 850;
+canvas.width = 900;
 canvas.height = 800;
 
 const bulletController = new BulletController(canvas);
