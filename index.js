@@ -57,8 +57,8 @@ function createRandomEnemies(level) {
     const enemyCount = 7 * Math.pow(2, level - 1); // Level 1: 7, Level 2: 14, etc.
     
     for (let i = 0; i < enemyCount; i++) {
-        const x = Math.floor(Math.random() * 900);
-        const y = Math.floor(Math.random() * 800);
+        const x = Math.floor(Math.random() * 600);
+        const y = Math.floor(Math.random() * 600);
         const color = colors[Math.floor(Math.random() * colors.length)];
         const health = Math.floor(Math.random() * 10) + 1;
         enemies.push(new Enemy(x, y, color, health));
@@ -86,15 +86,15 @@ let winPopup = document.createElement("div"); // For "You Win" popup
 
 // Wave spawning function: spawns up to 5 enemies every 3 seconds until enemyTotal is reached
 function spawnWave() {
-    const waveSize = Math.min(2, enemyTotal - enemySpawned);
+    const waveSize = Math.min(5, enemyTotal - enemySpawned);
     const colors = ["green", "red", "blue", "yellow", "purple", "hotpink", "orange", "black", "white", "silver", "aqua","pink","magenta","lime","teal","navy","maroon","olive",];
 
     for (let i = 0; i < waveSize; i++) {
         let x, y, dx, dy;
         // Loop until the generated (x, y) is at least 100px away from the player
         do {
-            x = Math.floor(Math.random() * 900);
-            y = Math.floor(Math.random() * 800);
+            x = Math.floor(Math.random() * 600);
+            y = Math.floor(Math.random() * 600);
             dx = x - player.x;
             dy = y - player.y;
         } while (Math.sqrt(dx * dx + dy * dy) < 150);
@@ -106,7 +106,7 @@ function spawnWave() {
     }
 
     if (enemySpawned < enemyTotal) {
-        setTimeout(spawnWave, 3000); // Spawn new wave every 3 seconds until total is reached
+        setTimeout(spawnWave, 5000); // Spawn new wave every 3 seconds until total is reached
     }
 }
 
@@ -278,11 +278,11 @@ function gameLoop() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     if (isGameOver) {
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "red";
         ctx.font = "30px courier new";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText("You were eaten...", canvas.width / 2, canvas.height / 2 - 80);
+        ctx.fillText("You have been eaten...", canvas.width / 2, canvas.height / 2 - 80);
         ctx.fillText ("And Primrose has fallen to the Velociraptors.", canvas.width / 2, canvas.height / 2 - 40);
         ctx.fillText("Better luck next time, kid.", canvas.width / 2, canvas.height / 2);
         levelButton.style.display = "none";
